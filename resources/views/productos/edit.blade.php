@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Producto</title>
+</head>
+<body>
+    <h1>Editar producto</h1>
+    <form method="POST" action="{{ route('productos.update', $producto) }}">
+        @csrf
+        @method('PUT')
+        <label>Nombre:</label>
+        <input type="text" name="nombre" value="{{ $producto->nombre }}" required><br>
+        <label>Descripción:</label>
+        <textarea name="descripcion">{{ $producto->descripcion }}</textarea><br>
+        <label>Precio:</label>
+        <input type="number" name="precio" step="0.01" value="{{ $producto->precio }}" required><br>
+        <button type="submit">Actualizar</button>
+    </form>
+    <a href="{{ route('productos.index') }}">Volver al listado</a>
+</body>
+</html>
